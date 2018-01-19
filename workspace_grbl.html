@@ -229,7 +229,7 @@ body.hover {
 
 // ----------- chilipeppr.local changes ----------
 // Now we are in "test" - mode. Means this is the main method for cp.local
-cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-grbl"], function(ws) {
 
     console.log("initting workspace");
 
@@ -268,24 +268,24 @@ cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg LOCAL Workspace");
+    $('title').html("GRBL LOCAL Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-GRBL", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-tinyg", // Make the id the same as the cpdefine id
-        name: "Workspace / TinyG", // The descriptive name of your widget.
-        desc: `This is a workspace for ChiliPeppr's Hardware Fiddle. It is geared towards CNC machines using TinyG.`,
-        url: "http://raw.githubusercontent.com/chilipeppr/workspace-tinyg/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/chilipeppr/workspace-tinyg", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/chilipeppr/workspace-tinyg", // The backing github repo
-        testurl: "http://workspace-tinyg-chilipeppr.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
+        id: "com-chilipeppr-workspace-GRBL", // Make the id the same as the cpdefine id
+        name: "Workspace / GRBL", // The descriptive name of your widget.
+        desc: `This is a workspace for ChiliPeppr's Hardware Fiddle. It is geared towards CNC machines using GRBL.`,
+        url: "http://raw.githubusercontent.com/chilipeppr/workspace-grbl/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/chilipeppr/workspace-grbl", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/chilipeppr/workspace-grbl", // The backing github repo
+        testurl: "http://workspace-grbl-chilipeppr.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
 
         foreignSubscribe: {
             "/com-chilipeppr-elem-dragdrop/ondragover": "The Chilipeppr drag drop element will publish on channel /com-chilipeppr-elem-dragdrop/ondropped when a file is dropped so we subscribe to it so we can load a Gcode file when the user drags it onto the browser. It also adds a hover class to the bound DOM elem so we can add a CSS to hilite on hover",
@@ -388,9 +388,9 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         spjs.setSingleSelectMode();
                         spjs.init({
                             isSingleSelectMode: true,
-                            defaultBuffer: "tinyg",
+                            defaultBuffer: "grbl",
                             defaultBaud: 115200,
-                            bufferEncouragementMsg: 'For your device please choose the "tinyg" or "tinygg2" buffer in the pulldown and a 115200 baud rate before connecting.'
+                            bufferEncouragementMsg: 'For your device please choose the "grbl" buffer in the pulldown and a 115200 baud rate before connecting.'
                         });
                         //spjs.showBody();
                         //spjs.consoleToggle();
@@ -1408,20 +1408,20 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 }
             ); //End XYZ
             
-            // TinyG
+            // GRBL
             chilipeppr.load(
-                "com-chilipeppr-tinyg",
-                "widgets/widget-tinyg/auto-generated-widget.html",
+                "com-chilipeppr-grbl",
+                "widgets/widget-grbl/auto-generated-widget.html",
         
                 function () {
                     cprequire(
-                    ["inline:com-chilipeppr-widget-tinyg"],
+                    ["inline:com-chilipeppr-widget-grbl"],
             
-                    function (tinyg) {
-                        tinyg.init();
+                    function (grbl) {
+                        grbl.init();
                     });
                 }
-            ); //End TinyG
+            ); //End GRBL
 
             // Cayenn Widget
             chilipeppr.load(
@@ -1478,7 +1478,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
     <div id="com-chilipeppr-widget-flash-instance"></div>
     <!--not sure which version to keep-->
 
-    <div id="com-chilipeppr-workspace-tinyg" class="xhidden">
+    <div id="com-chilipeppr-workspace-grbl" class="xhidden">
         <div id="com-chilipeppr-ws-gcode-wrapper" class="dropArea">
             <div id="com-chilipeppr-ws-gcode-dragdropoverlay" class="hidden">
                 <div class="well">Drag and Drop Gcode Files Onto Browser Window</div>
@@ -1491,7 +1491,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         <!-- Workspace Hdr -->
                         <div id="com-chilipeppr-ws-gcode-hdr" class="com-chilipeppr-ws-hdr zhigh well">
                             
-                            <span class="workspace-title">Workspace TinyG</span>
+                            <span class="workspace-title">Workspace GRBL</span>
                             
                             <div id="com-chilipeppr-ws-menu" class="">
                                 
@@ -1619,8 +1619,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                     <div class="col-xs-3 nopadding">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
-                        <!-- Tinyg -->
-                        <div id="com-chilipeppr-tinyg" class="">Load TinyG Here</div>
+                        <!-- GRBL -->
+                        <div id="com-chilipeppr-grbl" class="">Load GRBL Here</div>
                         <!-- WebRTC Client -->
                         <div id="com-chilipeppr-webrtcclient" class="hidden">Load WebRTC Client Here</div>
                         <!-- Serial Port Selector -->
@@ -1632,23 +1632,23 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
     </div>
 
     <!-- Keep this div hidden so it can be cloned and used by the Javascript -->
-    <div id="com-chilipeppr-workspace-tinyg-billboard" class="hidden">
+    <div id="com-chilipeppr-workspace-grbl-billboard" class="hidden">
         <div class="billboard-content">
-            <h4 class="billboard-title" style="">TinyG Workspace</h4>
+            <h4 class="billboard-title" style="">GRBL Workspace</h4>
 
-            <p class="billboard-url" style=""><a href="http://chilipeppr.com/tinyg">chilipeppr.com/tinyg</a>
+            <p class="billboard-url" style=""><a href="http://chilipeppr.com/grbl">chilipeppr.com/grbl</a>
 
             </p>
             <div class="billboard-imgcontain" style="">
-                <a href="http://chilipeppr.com/tinyg">
-                    <div class="billboard-img" style="background-image: url('https://i2dcui.appspot.com/img/tinyg.jpg')" />
+                <a href="http://chilipeppr.com/grbl">
+                    <div class="billboard-img" style="background-image: url('https://i2dcui.appspot.com/img/grbl.jpg')" />
                 </a>
                 <div class="billboard-stats2">
                 </div>
 
             </div>
             <p class="billboard-desc">
-                A ChiliPeppr Workspace for TinyG CNC controllers.
+                A ChiliPeppr Workspace for GRBL CNC controllers.
             </p>
         </div>
     </div>
